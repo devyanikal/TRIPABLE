@@ -1,46 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
 import React from 'react';
-//jhjfghhgd
-class App extends React.Component{
-  state={details: [], }
+import ViewPlaces from './Components/ViewPlaces';
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import ViewHotels from './Components/ViewHotels';
 
-  componentDidMount(){
-    let data;
-    axios.get('http://127.0.0.1:8000/explore/')
-    .then(res => {
-      data=res.data;
-      this.setState({
-        details: data
-      });
-    })
-    .catch(err => { })
-  }
+class App extends React.Component{
   render(){
     return(
       <div>
+         <BrowserRouter>
         <header>explore place data</header>
         <hr></hr>
-        {this.state.details.map((output,id) => (
-          <div key={id}>
-            <div>
-              <h2>{output.place_name}</h2>
-            </div>
-          </div>
-        ))}
+        <ul>
+          <li>
+            <Link to="/places">View Places</Link>
+          </li>
+          <li>
+            <Link to="/hotels">View Hotels</Link>
+          </li>
+        </ul>
+        <br></br>
+        <div>
+        <Routes>  
+          <Route exact path='/places' element={< ViewPlaces />}></Route>  
+          <Route exact path='/hotels' element={< ViewHotels />}></Route>  
+        </Routes> 
+        </div> 
+      </BrowserRouter>
+
       </div>
     )
   }
 
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Explore Places</h1>
-//     </div>
-//   );
-// }
 
 export default App;
