@@ -11,14 +11,8 @@ class App extends React.Component{
          <BrowserRouter>
         <header>explore place data</header>
         <hr></hr>
-        <ul>
-          <li>
-            <Link to="/places">View Places</Link>
-          </li>
-          <li>
-            <Link to="/hotels">View Hotels</Link>
-          </li>
-        </ul>
+          <Link to="/places" className="btn btn-outline-primary">Explore Places</Link>&emsp;
+          <Link to="/hotels" className="btn btn-outline-primary">View Hotels</Link>
         <br></br>
         <div>
         <Routes>  
