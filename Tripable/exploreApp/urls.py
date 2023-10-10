@@ -1,11 +1,9 @@
 #from django.conf.urls import url
 from exploreApp import views
 from django.conf.urls import url
+from exploreApp import views;
 
 
 urlpatterns = [
-    #url(r'^explore$',views.explorePlaceApi),
-    #url(r'^explore/([0-9]+)$',views.explorePlaceApi)
-    url('explore/',views.explorePlaceApi)
-    
+    url('explore/',views.PlaceList.as_view(),name="genericview")
 ]

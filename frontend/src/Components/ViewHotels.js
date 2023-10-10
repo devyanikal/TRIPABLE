@@ -3,7 +3,7 @@ import React from 'react';
 function ViewHotels(){
     return(
         <div>
-            <h1>EXPLORE HOTELS!</h1>    
+            <h3>EXPLORE HOTELS!</h3>    
         </div>
 
     )

@@ -38,10 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'django_filters',
     'exploreApp.apps.ExploreappConfig'
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
+
+REST_FRAMEWORK = { 
+	'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend', 
+	), 
+}
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -130,4 +138,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
