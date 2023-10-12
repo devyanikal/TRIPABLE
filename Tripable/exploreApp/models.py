@@ -14,4 +14,4 @@ class Explore_place(models.Model):
     facility=models.TextField()
     About=models.TextField()
     location=models.CharField(max_length=500)
-    # image=models.ImageField(upload_to='files/places')
+    image=models.CharField(max_length=500)

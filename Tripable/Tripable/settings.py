@@ -39,8 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'exploreApp.apps.ExploreappConfig'
+    'exploreApp.apps.ExploreappConfig',
+    'django_filters'
 ]
+
+REST_FRAMEWORK = { 
+	'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend', 
+	), 
+}
 
 CORS_ORIGIN_ALLOW_ALL=True
 
@@ -86,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tripable',
         'USER': 'root' ,
-        'PASSWORD': 'Devi12dm#' ,
+        'PASSWORD': 'sunishka' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
