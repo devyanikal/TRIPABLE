@@ -1,8 +1,6 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
-
+from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from exploreApp.models import Explore_place
 from exploreApp.serializer import ExploreSerializer
 from rest_framework.generics import ListCreateAPIView

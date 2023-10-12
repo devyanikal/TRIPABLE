@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -50,6 +49,13 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL=True
+
+REST_FRAMEWORK = { 
+	'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend', 
+	), 
+}
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

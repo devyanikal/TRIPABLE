@@ -10,8 +10,13 @@ import SignUp from './Components/pages/SignUp';
 import Blogs from './Components/pages/Blogs';
 // import ReactPlayer from 'react-player'
 
-class App extends React.Component{
-  render(){
+function App(){
+  const [value, setValue] = useState("");
+  const [disablity, setDisability] = useState("");
+  function getVal() {
+    const val = document.querySelector('input').value;
+    console.log(val);
+  }
     return(
       <div>
          <BrowserRouter>
@@ -35,7 +40,6 @@ class App extends React.Component{
 
       </div>
     )
-  }
 
 }
 
