@@ -11,12 +11,6 @@ import Blogs from './Components/pages/Blogs';
 // import ReactPlayer from 'react-player'
 
 function App(){
-  const [value, setValue] = useState("");
-  const [disablity, setDisability] = useState("");
-  function getVal() {
-    const val = document.querySelector('input').value;
-    console.log(val);
-  }
     return(
       <div>
          <BrowserRouter>

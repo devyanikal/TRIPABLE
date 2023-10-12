@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tripable',
         'USER': 'root' ,
-        'PASSWORD': 'sunishka' ,
+        'PASSWORD': 'Devi12dm#' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
