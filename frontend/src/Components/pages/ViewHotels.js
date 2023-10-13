@@ -1,18 +1,6 @@
-// import React from 'react';
-
-// function ViewHotels(){
-//     return(
-//         <div>
-//             <h3>EXPLORE HOTELS!</h3>    
-//         </div>
-
-//     )
-//   }
-
-// export default ViewHotels;
-
 import React from 'react';
 import axios from 'axios';
+import {useRef} from 'react';
 import { useState,useEffect } from 'react';
 import CardTemplate from './Card';
 import { Grid, Hidden } from '@mui/material';
@@ -20,25 +8,17 @@ import { Grid, Hidden } from '@mui/material';
 function ViewHotels(){
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
-    const [details, setDetails] = useState([],);
-    const [isLoading, setLoading] = useState(true);
+  const [details, setDetails] = useState([],);
+  const [isLoading, setLoading] = useState(true);
 
-    // useEffect(() =>{
-    //     let data;
-    //     axios.get('http://127.0.0.1:8000/hotels/')
-    //     .then(res => {
-    //         data=res.data;
-    //         setDetails({
-    //             details: data
-    //         });
-    //         setLoading(false);
-    //     })
-    //     .catch(err => { })
-    // },[]);
-
+  const [searched, setSearched] = useState('');
+	const inputRef = useRef(null);
+	// function handleSearch() {
+	// 	//console.log(inputRef.current.value);
+	// 	setSearched(inputRef.current.value);
+	// 	console.log('searched value= ',searched);
+	// }
     let dict={wu: '',vi: '',si: '',hi: ''};
-
-  
 
     useEffect(() =>{
         let data;
@@ -48,8 +28,14 @@ function ViewHotels(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        console.log(url)
+        let url='http://127.0.0.1:8000/hotels'
+        //let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        if (searched){
+          url='http://127.0.0.1:8000/hotels?search='+searched
+        }
+        else{
+          url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        }
         axios.get(url)
             .then(res => {
                 data=res.data;
@@ -59,7 +45,7 @@ function ViewHotels(){
                 setLoading(false);
             })
             .catch(err => { })
-    },[value,disablity]);
+    },[value,disablity,searched]);
 
     if (isLoading) {
         return (
@@ -78,7 +64,12 @@ function ViewHotels(){
 <div className="destination-list">
 {/* style={{marginLeft: 10 + 'em'}} */}
 
-<div style={{marginLeft: 10 + 'em'}}>
+<div style={{marginLeft: 10 + 'em',marginTop:2 + 'em' }}>
+            <div class="input-group">
+              <input type="search" id="search" name="search" ref={inputRef} class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+              <button type="button" class="btn btn-outline-primary" onClick={()=>{setSearched(inputRef.current.value)}}>search</button>
+              {/* <h2>{searched}</h2> */}
+            </div>
           <h4>Choose city:</h4>
             <select id="places" value={value} onChange={(event)=>{setValue(event.target.value)}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
               <option value="">ALL</option>

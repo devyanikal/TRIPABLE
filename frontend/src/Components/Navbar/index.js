@@ -1,4 +1,5 @@
 import React from 'react'; 
+
 import { 
 Nav, 
 NavLink, 
@@ -9,6 +10,7 @@ NavBtnLink,
 } from './Navbar_elements'; 
 
 const Navbar = () => { 
+
 return ( 
 	<> 
 	<Nav> 
@@ -39,7 +41,8 @@ return (
 		</NavLink> 
 		{/* Second Nav */} 
 		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */} 
-		</NavMenu> 
+		</NavMenu>
+
 		<NavBtn> 
 		<NavBtnLink to='/signin'>Sign In</NavBtnLink> 
 		</NavBtn> 

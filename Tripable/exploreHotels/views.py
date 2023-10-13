@@ -16,5 +16,5 @@ class HotelList(ListCreateAPIView):
     queryset=exploreplace=Hotels.objects.all()
     serializer_class=ExploreHotelSerializer
     filter_backends=[DjangoFilterBackend,SearchFilter]
-    #search_fields=['place_name','city','facility','About','location']
+    search_fields=['name','landmark','city','state','country','pincode']
     filterset_fields=['city','wheelchair_user','hearing_impaired','visual_impaired','speech_impaired']

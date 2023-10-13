@@ -1,32 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import CardTemplate from './Card';
 import { Grid, Hidden } from '@mui/material';
 
 function ViewPlaces(){
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
-    const [details, setDetails] = useState([],);
-    const [isLoading, setLoading] = useState(true);
-
-    // useEffect(() =>{
-    //     let data;
-    //     axios.get('http://127.0.0.1:8000/explore/')
-    //     .then(res => {
-    //         data=res.data;
-    //         setDetails({
-    //             details: data
-    //         });
-    //         setLoading(false);
-    //     })
-    //     .catch(err => { })
-    // },[]);
+  const [details, setDetails] = useState([],);
+  const [isLoading, setLoading] = useState(true);
+  const [searched, setSearched] = useState('');
+	const inputRef = useRef(null);
 
     let dict={wu: '',vi: '',si: '',hi: ''};
-
-  
-
     useEffect(() =>{
         let data;
         console.log(disablity)
@@ -35,7 +21,14 @@ function ViewPlaces(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        let url='http://127.0.0.1:8000/explore'
+        //let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        if (searched){
+          url='http://127.0.0.1:8000/explore?search='+searched
+        }
+        else{
+          url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        }
         console.log(url)
         axios.get(url)
             .then(res => {
@@ -46,7 +39,7 @@ function ViewPlaces(){
                 setLoading(false);
             })
             .catch(err => { })
-    },[value,disablity]);
+    },[value,disablity,searched]);
 
     if (isLoading) {
         return (
@@ -65,7 +58,12 @@ function ViewPlaces(){
 <div className="destination-list">
 {/* style={{marginLeft: 10 + 'em'}} */}
 
-<div style={{marginLeft: 10 + 'em'}}>
+<div style={{marginLeft: 10 + 'em',marginTop:2 + 'em' }}>
+            <div class="input-group">
+              <input type="search" id="search" name="search" ref={inputRef} class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+              <button type="button" class="btn btn-outline-primary" onClick={()=>{setSearched(inputRef.current.value)}}>search</button>
+              <h2>{searched}</h2> 
+            </div>
           <h4>Choose city:</h4>
             <select id="places" value={value} onChange={(event)=>{setValue(event.target.value)}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
               <option value="">ALL</option>
@@ -87,7 +85,7 @@ function ViewPlaces(){
 
 <Grid container item spacing={3}>
         {details.details.map((place, id) => (
-            <div key={id}> {console.log(place.image)}
+            <div key={id}> 
           
           <CardTemplate key={id} image={place.image} name={place.place_name} description={place.About}/>
           </div>
