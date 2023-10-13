@@ -21,14 +21,14 @@ function ViewPlaces(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        let url='http://127.0.0.1:8000/explore'
-        //let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        if (searched){
+        //let url='http://127.0.0.1:8000/explore'
+        let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        if (searched && !value && !disablity){
           url='http://127.0.0.1:8000/explore?search='+searched
         }
-        else{
-          url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        }
+        // else{
+        //   url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        // }
         console.log(url)
         axios.get(url)
             .then(res => {

@@ -28,14 +28,15 @@ function ViewHotels(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        let url='http://127.0.0.1:8000/hotels'
-        //let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        if (searched){
+        //let url='http://127.0.0.1:8000/hotels'
+        
+        let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        if (searched && !value && !disablity){
           url='http://127.0.0.1:8000/hotels?search='+searched
         }
-        else{
-          url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        }
+        // else{
+        //   url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        // }
         axios.get(url)
             .then(res => {
                 data=res.data;
@@ -68,7 +69,7 @@ function ViewHotels(){
             <div class="input-group">
               <input type="search" id="search" name="search" ref={inputRef} class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
               <button type="button" class="btn btn-outline-primary" onClick={()=>{setSearched(inputRef.current.value)}}>search</button>
-              {/* <h2>{searched}</h2> */}
+             <h2>{searched}</h2> 
             </div>
           <h4>Choose city:</h4>
             <select id="places" value={value} onChange={(event)=>{setValue(event.target.value)}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
