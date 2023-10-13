@@ -22,6 +22,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', include('exploreApp.urls'))
+    url('', include('exploreApp.urls')),
+    url('', include('exploreHotels.urls'))
     
 ]

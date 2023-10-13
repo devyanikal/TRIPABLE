@@ -13,4 +13,5 @@ class Explore_place(models.Model):
     facility=models.TextField()
     About=models.TextField()
     location=models.CharField(max_length=500)
-    image=models.CharField(max_length=500)
+    image=models.CharField(max_length=500, default=" ")
+

@@ -2,14 +2,31 @@ import React from 'react';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import CardTemplate from './Card';
-import { Grid } from '@mui/material';
+import { Grid, Hidden } from '@mui/material';
 
 function ViewPlaces(){
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
     const [details, setDetails] = useState([],);
     const [isLoading, setLoading] = useState(true);
+
+    // useEffect(() =>{
+    //     let data;
+    //     axios.get('http://127.0.0.1:8000/explore/')
+    //     .then(res => {
+    //         data=res.data;
+    //         setDetails({
+    //             details: data
+    //         });
+    //         setLoading(false);
+    //     })
+    //     .catch(err => { })
+    // },[]);
+
     let dict={wu: '',vi: '',si: '',hi: ''};
+
+  
+
     useEffect(() =>{
         let data;
         console.log(disablity)
@@ -49,22 +66,23 @@ function ViewPlaces(){
 {/* style={{marginLeft: 10 + 'em'}} */}
 
 <div style={{marginLeft: 10 + 'em'}}>
-          <h5>Choose city:</h5>
+          <h4>Choose city:</h4>
             <select id="places" value={value} onChange={(event)=>{setValue(event.target.value)}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
               <option value="">ALL</option>
               <option value="Manali">Manali</option>
               <option value="Udaipur">Udaipur</option>
             </select>
-            </div>  
-            <div style={{marginLeft: 10 + 'em'}}>
               <h4>Choose Aids:</h4>
             <select onChange={(event)=>{setDisability(event.target.value)}}  id="colours">
             <option value="">ALL</option>
               <option value="wu">Wheelchair user</option>
-              <option value="vi">Visually Imapired</option>
-              <option value="hi">Hearing Imapired</option>
-              <option value="si">Speech Imapired</option>
+              <option value="vi">Visually Impaired</option>
+              <option value="hi">Hearing Impaired</option>
+              <option value="si">Speech Impaired</option>
             </select>
+            <h3 style={{visibility: 'hidden'}}>{disablity}</h3>
+            {console.log(disablity)}
+        
         </div>
 
 <Grid container item spacing={3}>

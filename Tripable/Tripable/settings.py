@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'exploreApp.apps.ExploreappConfig',
+    'exploreHotels.apps.ExplorehotelsConfig',
     'django_filters'
 ]
 
