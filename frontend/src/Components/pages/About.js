@@ -3,6 +3,7 @@ import './About.css'
 
 function About() {
   const about = require('../images/aboutus.jpeg');
+  const founder= require('../images/founder.jpg');
   return (
     <div>
       <div className='main-container'>
@@ -11,7 +12,7 @@ function About() {
       </div>
       <div class="container">
         <div class="image">
-          <img id='img1' src="https://planetabled.com/wp-content/uploads/2017/02/neha.png"/>
+          <img id='img1' src={founder}/>
         </div>
         <div class="text">
         <h1>Founder</h1>

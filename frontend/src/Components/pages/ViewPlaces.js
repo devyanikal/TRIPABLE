@@ -12,6 +12,7 @@ function ViewPlaces(){
   const [isLoading, setLoading] = useState(true);
   const [searched, setSearched] = useState('');
 	const inputRef = useRef(null);
+  const [flag,setFlag]=useState(0);
 
     let dict={wu: '',vi: '',si: '',hi: ''};
     useEffect(() =>{
@@ -22,15 +23,13 @@ function ViewPlaces(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        //let url='http://127.0.0.1:8000/explore'
         let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        if (searched && !value && !disablity){
-          url='http://127.0.0.1:8000/explore?search='+searched
-        }
-        // else{
-        //   url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
-        // }
         console.log(url)
+        console.log(searched)
+        if(flag==1){
+          url='http://127.0.0.1:8000/explore?search='+searched;
+          setFlag(0);
+        }
         axios.get(url)
             .then(res => {
                 data=res.data;
@@ -62,7 +61,7 @@ function ViewPlaces(){
 <div style={{marginLeft: 10 + 'em',marginTop:2 + 'em' }}>
             <div class="input-group">
               <input type="search" id="search" name="search" ref={inputRef} class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-              <button type="button" class="btn btn-outline-primary" onClick={()=>{setSearched(inputRef.current.value)}}>search</button>
+              <button type="button" class="btn btn-outline-primary" onClick={()=>{setSearched(inputRef.current.value);setFlag(1)}}>search</button>
               <h2>{searched}</h2> 
             </div>
           <h4>Choose city:</h4>
