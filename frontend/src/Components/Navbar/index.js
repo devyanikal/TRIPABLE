@@ -33,9 +33,9 @@ return (
 		<NavLink to='/hotels' activeStyle> 
 			Hotels 
 		</NavLink> 
-		<NavLink to='/blogs' activeStyle> 
+		{/* <NavLink to='/blogs' activeStyle> 
 			Blogs 
-		</NavLink> 
+		</NavLink>  */}
 		<NavLink to='/signup' activeStyle> 
 			Sign Up 
 		</NavLink> 

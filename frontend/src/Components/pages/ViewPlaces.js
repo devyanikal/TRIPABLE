@@ -5,6 +5,7 @@ import CardTemplate from './Card';
 import { Grid, Hidden } from '@mui/material';
 
 function ViewPlaces(){
+  //let info={}
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
   const [details, setDetails] = useState([],);
@@ -82,14 +83,25 @@ function ViewPlaces(){
             {console.log(disablity)}
         
         </div>
-
 <Grid container item spacing={3}>
-        {details.details.map((place, id) => (
-            <div key={id}> 
-          
-          <CardTemplate key={id} image={place.image} name={place.place_name} description={place.About}/>
-          </div>
-        ))}
+
+        {/* { Object.entries(details.details).map(([key, value]) => {
+            if(key==0){
+                {console.log(value.place_name)}
+                {console.log(typeof(value))}
+                {info=value}
+                {console.log(info)}
+          }
+        })}
+        <CardTemplate image={info.image} name={info.place_name} description={info.About}/> */}
+        
+       {details.details.map((place, id) => (
+              <div key={id}> 
+              <CardTemplate key={id} image={place.image} name={place.place_name} description={place.About}/>
+              </div>
+            
+        ))} 
+
         </Grid>
         
       </div>

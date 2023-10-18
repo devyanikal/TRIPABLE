@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Contactus from './Components/Contactus/Contactus';
 import ViewPlaces from './Components/pages/ViewPlaces';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ViewHotels from './Components/pages/ViewHotels';
@@ -28,7 +29,9 @@ function App(){
           <Route exact path='/signup' element={< SignUp />}></Route> 
         </Routes>
 
-
+        <footer>
+        <Contactus/> 
+        </footer>
         </div> 
       </BrowserRouter>
 
