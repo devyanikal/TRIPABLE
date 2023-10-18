@@ -1,27 +1,44 @@
 import { display, height } from '@mui/system';
 import React from 'react';
+import './Contactus.css'
 
 function Contactus(){
     return(
+        
         <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            {/* <link rel="stylesheet" href="formcarry-form.css" /> */}
             <footer style={{paddingTop:"100px"}}>
                 <div>
-                <div style={{width:"100%", height:"200px",backgroundColor:"#9FE2BF"}}>
+                <div style={{width:"100%", height:"410px",backgroundColor:"#9FE2BF",color:"252424"}}>
 
-                {/* <div> style="width: 50%; display: table-cell; background: green;" */}
-                    <div style={{width: "50%" , height:"100px" , float: 'left', paddingTop:"25px", paddingLeft:"100px"}}>
+                    <div style={{width: "50%" , height:"100px" , float: 'left', paddingTop:"70px", paddingLeft:"150px"}}>
                         <p>
                             <h3>CONTACT US</h3>
                             <h4><u>travel@tripable.com</u></h4>
                             <h4>Call/Whatsapp: +91 9910042287</h4>
+                            <a href="https://www.facebook.com/PlanetAbled/" target="_blank" class="fa fa-facebook"></a>
+                            <a href="https://twitter.com/planetabled" target="_blank" class="fa fa-twitter"></a>
+                            <a href="https://www.youtube.com/channel/UCRjxH373IAvgRkjgG23iSXw" target="_blank" class="fa fa-youtube"></a>
+                            <a href="https://www.instagram.com/planetabled/" target="_blank" class="fa fa-instagram"></a>
                         </p>
                     </div>
-                    <div style={{marginLeft:"50%", height:"100px", width:"50%", paddingTop:"25px"}}>
-                        <p>
-                            <h3>CONTACT US</h3>
-                            <h4><u>travel@tripable.com</u></h4>
-                            <h4>Call/Whatsapp: +91 9910042287</h4>
-                        </p>
+                    <div style={{marginLeft:"50%", paddingTop:"2px"}}>
+                            <div class="formcarry-container">
+                                <h3>MAIL US!</h3>
+                            <form action="https://formcarry.com/s/PVGDd5qrD3" method="POST" class="formcarry-form">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="fullName" required /><br></br>
+
+                                <label for="email">Your Email Address</label>
+                                <input type="email" id="email" name="email" required /><br></br>
+
+                                <label for="message">Your Message</label>
+                                <textarea name="message" id="message" cols="30" rows="5"></textarea><br></br>
+
+                                <button type="submit">Send</button>
+                            </form>
+                            </div>
                     </div>
                 </div>
                 </div>
