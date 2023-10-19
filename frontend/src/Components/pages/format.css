@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&family=Open+Sans:wght@300&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.top {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 50px;
+    background-color: #FA8072;
+    border-radius: 10px;
+    color: aliceblue;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .bg_img{
+    width: 98%;
+    height: 700px ;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #FA8072;
+  }
+
+  .main{
+    font-family: 'Martel Sans';
+  }
+
+  .carousel{
+    width: 98%;
+    color: aliceblue;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #9FE2BF;
+  }
+
+  .places{
+    margin-top: 20px;
+    margin-left: 10em;
+  }
+
+  .input-group{
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  

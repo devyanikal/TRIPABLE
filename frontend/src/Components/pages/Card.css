@@ -11,6 +11,7 @@
     width: 420px;
     margin-top: 5px;
     margin-bottom: 10px;
+    text-decoration: none;
   }
   
   .box:hover {
@@ -26,6 +27,7 @@
     image-rendering: crisp-edges;
     align-items: center;
     border: none;
+    background-color: #9FE2BF;
   }
   
   .container1 {
@@ -35,13 +37,15 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    text-decoration: double;
+    text-decoration: none;
     font-size: medium;
     border: none;
     animation-duration: 3s;
     animation-name: slidein;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    max-height: 350px;
+    background-color: #9FE2BF;
   }
   
   .container1:hover {
@@ -55,4 +59,9 @@
     border-radius: 10px;
     align-items: center;
     border-width: 0;
+    text-decoration: none;
+  }
+
+  .text_area{
+    background-color: #9FE2BF;
   }

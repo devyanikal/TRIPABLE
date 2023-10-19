@@ -1,40 +1,21 @@
-// import React from 'react';
 
-// function ViewHotels(){
-//     return(
-//         <div>
-//             <h3>EXPLORE HOTELS!</h3>    
-//         </div>
-
-//     )
-//   }
-
-// export default ViewHotels;
-
+import './format.css'
 import React from 'react';
 import axios from 'axios';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import CardTemplate from './Card';
 import { Grid, Hidden } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function ViewHotels(){
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
     const [details, setDetails] = useState([],);
     const [isLoading, setLoading] = useState(true);
+    const inputRef = useRef(null);
+    const [flag,setFlag]=useState(0);
+    const [searched, setSearched] = useState('');
 
-    // useEffect(() =>{
-    //     let data;
-    //     axios.get('http://127.0.0.1:8000/hotels/')
-    //     .then(res => {
-    //         data=res.data;
-    //         setDetails({
-    //             details: data
-    //         });
-    //         setLoading(false);
-    //     })
-    //     .catch(err => { })
-    // },[]);
 
     let dict={wu: '',vi: '',si: '',hi: ''};
 
@@ -50,6 +31,11 @@ function ViewHotels(){
         console.log(dict)
         let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
         console.log(url)
+        console.log(searched)
+        if(flag==1){
+          url='http://127.0.0.1:8000/explore?search='+searched;
+          setFlag(0);
+        }
         axios.get(url)
             .then(res => {
                 data=res.data;
@@ -59,7 +45,7 @@ function ViewHotels(){
                 setLoading(false);
             })
             .catch(err => { })
-    },[value,disablity]);
+    },[value,disablity,searched]);
 
     if (isLoading) {
         return (
@@ -78,14 +64,23 @@ function ViewHotels(){
 <div className="destination-list">
 {/* style={{marginLeft: 10 + 'em'}} */}
 
-<div style={{marginLeft: 10 + 'em'}}>
-          <h4>Choose city:</h4>
+<div className='places'>
+<Grid container spacing={2}>
+<div class="input-group">
+              <input type="search" id="search" name="search" ref={inputRef} class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+              <button type="button" class="btn btn-outline-primary" style={{maxHeight: 37 + 'px'}} onClick={()=>{setSearched(inputRef.current.value);setFlag(1)}}>search</button>
+              <h2 style={{visibility: 'hidden'}}>{searched}</h2> 
+            </div>
+    <Grid item xs={4}>
+          <h5>Choose city:</h5>
             <select id="places" value={value} onChange={(event)=>{setValue(event.target.value)}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
               <option value="">ALL</option>
               <option value="Manali">Manali</option>
               <option value="Udaipur">Udaipur</option>
             </select>
-              <h4>Choose Aids:</h4>
+            </Grid>
+            <Grid item xs={4}>
+              <h5>Choose Aids:</h5>
             <select onChange={(event)=>{setDisability(event.target.value)}}  id="colours">
             <option value="">ALL</option>
               <option value="wu">Wheelchair user</option>
@@ -95,14 +90,18 @@ function ViewHotels(){
             </select>
             <h3 style={{visibility: 'hidden'}}>{disablity}</h3>
             {console.log(disablity)}
+            </Grid>
+            </Grid>
         
         </div>
 
       <Grid container item spacing={3}>
         {details.details.map((hotel, id) => (
             <div key={id}> {console.log(hotel.image)}
-          
+            {console.log(hotel)}
+            <Link to={`/hotels/${hotel.id}`} className={"link"} style={{textDecoration: 'none'}} >
           <CardTemplate key={id} image={hotel.image} name={hotel.name} description={hotel.landmark+", "+hotel.city+", "+hotel.state+", "+hotel.country+", "+hotel.pincode}/>
+          </Link>
           </div>
         ))}
         </Grid>

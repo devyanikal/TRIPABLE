@@ -1,0 +1,67 @@
+.box {
+    background-color: black;
+    border-radius: 20px;
+    padding:10px
+  }
+  
+  .dept {
+    background-color: #ffffff;
+    align-content: center;
+    height: 260;
+    width: 420px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .imgCard {
+    height: 200px;
+    width: 350px;
+    display: flex;
+    object-fit: fill;
+    image-rendering: crisp-edges;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .container1 {
+    margin-top: 70px;
+    margin-left: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: double;
+    font-size: medium;
+    border: none;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .main {
+    background-color: #a2a2a2;
+    border-radius: 10px;
+    align-items: center;
+    border-width: 0;
+  }
+
+  .pd_img{
+    width: 700;
+    height: 500;
+    background-color: #FA8072;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .pd{
+    width: 700;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #9FE2BF;
+    color: sienna;
+  }

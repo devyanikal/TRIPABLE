@@ -3,29 +3,30 @@ from django.core.exceptions import FieldDoesNotExist
 # Create your models here.
 
 class Hotels(models.Model):
-    name = models.CharField(max_length=300)
+    id=models.AutoField(primary_key=True)
+    name = models.CharField(max_length=300,default=" ")
     email = models.EmailField()
 
     #address
-    landmark = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-    pincode = models.IntegerField()
+    landmark = models.CharField(max_length=50,default=" ")
+    city = models.CharField(max_length=50, default=" ")
+    state = models.CharField(max_length=50,default=" ")
+    country = models.CharField(max_length=50,default=" ")
+    pincode = models.IntegerField(default=00)
 
     #contacts
-    prefix = models.CharField(max_length=4)
-    phone = models.CharField(max_length=10)
+    prefix = models.CharField(max_length=4,default=" ")
+    phone = models.CharField(max_length=10,default=" ")
     # phone=models.BigIntegerField(max_length=10)
 
     #accessiblity
-    visual_impaired=models.BooleanField()
-    wheelchair_user=models.BooleanField()
-    hearing_impaired=models.BooleanField()
-    speech_impaired=models.BooleanField()
+    visual_impaired=models.BooleanField(default=0)
+    wheelchair_user=models.BooleanField(default=0)
+    hearing_impaired=models.BooleanField(default=0)
+    speech_impaired=models.BooleanField(default=0)
     
     #extra
-    facility = models.TextField()
+    facility = models.TextField(default=" ")
     # rooms = models.IntegerField()
     # price = models.IntegerField()
     # ac_rooms = models.BooleanField()

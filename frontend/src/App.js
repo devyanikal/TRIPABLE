@@ -2,12 +2,14 @@ import './App.css';
 import React from 'react';
 import ViewPlaces from './Components/pages/ViewPlaces';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Contactus from './Components/Contactus/Contactus';
 import ViewHotels from './Components/pages/ViewHotels';
 import Home from './Components/pages/Home';
 import Navbar from './Components/Navbar'
 import About from './Components/pages/About';
 import SignUp from './Components/pages/SignUp';
-import Blogs from './Components/pages/Blogs';
+import PlaceDetails from './Components/pages/PlaceDetails';
+import HotelDetails from './Components/pages/HotelDetails';
 // import ReactPlayer from 'react-player'
 
 function App(){
@@ -20,14 +22,17 @@ function App(){
 
         <div>
         <Routes>  
-          <Route exact path='/home' element={< Home />}></Route>
+          <Route exact path='/' element={< Home />}></Route>
           <Route exact path='/about' element={< About />}></Route>
           <Route exact path='/places' element={< ViewPlaces />}></Route>  
           <Route exact path='/hotels' element={< ViewHotels />}></Route> 
-          <Route exact path='/blogs' element={< Blogs />}></Route>
           <Route exact path='/signup' element={< SignUp />}></Route> 
+          <Route exact path='/places/:pid' element={<PlaceDetails/>}></Route>
+          <Route exact path='/hotels/:hid' element={<HotelDetails/>}></Route>
         </Routes>
-
+        <footer>
+        <Contactus/> 
+        </footer>
 
         </div> 
       </BrowserRouter>
