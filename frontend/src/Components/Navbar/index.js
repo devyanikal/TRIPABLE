@@ -21,7 +21,7 @@ return (
 			 
 		<img src="./travel.png" alt="bug" height="55px"/>
 
-        <NavLink to='/' activeStyle> 
+        <NavLink to='/home' activeStyle> 
 			Home 
 		</NavLink>
 		<NavLink to='/about' activeStyle> 
