@@ -8,6 +8,7 @@ import './format.css'
 
 
 function ViewPlaces(){
+  //let info={}
   const [value, setValue] = useState("");
   const [disablity, setDisability] = useState("");
     const [details, setDetails] = useState([],);
@@ -18,9 +19,6 @@ function ViewPlaces(){
 
 
     let dict={wu: '',vi: '',si: '',hi: ''};
-
-  
-
     useEffect(() =>{
         let data;
         console.log(disablity)
@@ -94,7 +92,6 @@ function ViewPlaces(){
             </Grid>
             </Grid>
         </div>
-
 <Grid container item spacing={3}>
         {details.details.map((place, id) => (
             <div key={id}> {console.log(place.image)}

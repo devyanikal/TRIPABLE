@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Contactus from './Components/Contactus/Contactus';
 import ViewPlaces from './Components/pages/ViewPlaces';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Contactus from './Components/Contactus/Contactus';

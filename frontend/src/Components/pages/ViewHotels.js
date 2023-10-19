@@ -19,8 +19,6 @@ function ViewHotels(){
 
     let dict={wu: '',vi: '',si: '',hi: ''};
 
-  
-
     useEffect(() =>{
         let data;
         console.log(disablity)
@@ -29,6 +27,7 @@ function ViewHotels(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
+        
         let url='http://127.0.0.1:8000/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
         console.log(url)
         console.log(searched)
