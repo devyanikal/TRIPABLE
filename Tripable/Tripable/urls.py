@@ -20,9 +20,11 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf.urls import url
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', include('exploreApp.urls')),
-    url('', include('exploreHotels.urls'))
+    path('', include('exploreApp.urls')),
+    # url('', include('exploreHotels.urls')),
+    path('api/stripe/',include('exploreHotels.urls'))
     
 ]

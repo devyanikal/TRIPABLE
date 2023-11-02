@@ -47,6 +47,7 @@ export default function DetailedCard(props) {
     <p>{props.wu}</p>
     <p>{props.hi}</p>
     <p>{props.si}</p>
+
   </div>
 </div>
 

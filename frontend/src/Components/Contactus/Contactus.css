@@ -68,7 +68,7 @@
 .formcarry-form textarea {
   font-size: 16px;
   display: block;
-  width: 80%;
+  width: 100%;
   padding: 2px;
   background-color: var(--color-gray);
   border: none;
@@ -93,7 +93,7 @@
   display: block;
   padding: 5px;
   margin-top: 5px;
-  width: 80%;
+  width: 100%;
   padding: 6px 15px;
   border-radius: 8px;
   border-color: transparent;

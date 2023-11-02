@@ -100,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tripable',
         'USER': 'root' ,
-        'PASSWORD': 'sunishka' ,
+        'PASSWORD': 'Devi12dm#' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
@@ -145,3 +145,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SITE_URL='http://localhost:3000'
+
+STRIPE_PUBLIC_KEY=""
+STRIPE_SECRET_KEY="sk_test_51O6njMSAW3yVCbzIYChOcjbJyGEvY8Zv9aVA8HOHJB5uTDtRq5GyWGV2clpUfU6vGxyvJGMqN6tSbQGIjfZoO1QS00D2D584cc"
+STRIPE_WEBHOOK_SECRET=""

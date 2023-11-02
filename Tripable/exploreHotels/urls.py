@@ -1,7 +1,10 @@
 from django.conf.urls import url
+from django.urls import path
 from exploreHotels import views;
 
 
 urlpatterns = [
-    url('hotels/',views.HotelList.as_view(),name="genericview")
+    path('hotels/',views.HotelList.as_view(),name="genericview"),
+    path('hotel/<int:pk>',views.SingleHotel.as_view(),name="hotel"),
+    path('create-checkout-session/<pk>',views.CreateCheckoutSessionView.as_view(), name='checkout_session')
 ]

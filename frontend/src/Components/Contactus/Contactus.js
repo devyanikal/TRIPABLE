@@ -9,7 +9,7 @@ function Contactus(){
             {/* <link rel="stylesheet" href="formcarry-form.css" /> */}
             <footer style={{paddingTop:"100px"}}>
                 <div>
-                <div style={{width:"100%", height:"440px",backgroundColor:"#9FE2BF",color:"252424"}}>
+                <div style={{width:"100%", height:"500px",backgroundColor:"#9FE2BF",color:"252424"}}>
 
                     <div style={{width: "50%" , height:"100px" , float: 'left', paddingTop:"70px", paddingLeft:"150px"}}>
                         <p>
@@ -31,6 +31,9 @@ function Contactus(){
 
                                 <label for="email">Your Email Address</label>
                                 <input type="email" id="email" name="email" required />
+
+                                <label for="phoneno">Phone Number</label>
+                                <input type="text" id="phoneno" name="phoneno" required />
 
                                 <label for="message">Your Message</label>
                                 <textarea name="message" id="message" cols="30" rows="5"></textarea>

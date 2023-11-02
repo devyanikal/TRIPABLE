@@ -42,3 +42,6 @@ class Hotels(models.Model):
 
 
     image=models.CharField(max_length=500,default=" ")
+    
+    def __str__(self):
+        return self.name

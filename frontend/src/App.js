@@ -1,9 +1,8 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Contactus from './Components/Contactus/Contactus';
 import ViewPlaces from './Components/pages/ViewPlaces';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contactus from './Components/Contactus/Contactus';
 import ViewHotels from './Components/pages/ViewHotels';
 import Home from './Components/pages/Home';
 import Navbar from './Components/Navbar'
@@ -13,7 +12,9 @@ import PlaceDetails from './Components/pages/PlaceDetails';
 import HotelDetails from './Components/pages/HotelDetails';
 // import ReactPlayer from 'react-player'
 
+
 function App(){
+
     return(
       <div>
          <BrowserRouter>
