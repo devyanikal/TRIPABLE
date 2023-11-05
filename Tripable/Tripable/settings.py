@@ -40,22 +40,21 @@ INSTALLED_APPS = [
     'corsheaders',
     'exploreApp.apps.ExploreappConfig',
     'exploreHotels.apps.ExplorehotelsConfig',
+    'tourist.apps.TouristConfig',
     'django_filters'
 ]
 
 REST_FRAMEWORK = { 
-	'DEFAULT_FILTER_BACKENDS':(
-		'django_filters.rest_framework.DjangoFilterBackend', 
-	), 
+    # "DEFAULT_PERMISSION_CLASSES": (
+    #     "rest_framework.permissions.AllowAny"),
+    'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend',
+	)
 }
 
 CORS_ORIGIN_ALLOW_ALL=True
 
-REST_FRAMEWORK = { 
-	'DEFAULT_FILTER_BACKENDS':(
-		'django_filters.rest_framework.DjangoFilterBackend', 
-	), 
-}
+
 
 
 MIDDLEWARE = [
@@ -74,7 +73,7 @@ ROOT_URLCONF = 'Tripable.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Tripable/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

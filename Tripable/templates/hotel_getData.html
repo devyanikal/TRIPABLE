@@ -1,0 +1,82 @@
+<html>
+
+<body>
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+            <h4> Hotel ID: {{user_id}} </h4>
+            <h4> Enter Hotel's Address:  </h4>
+            <input type="text" name="id" placeholder="Hotel ID">
+            <input type="text" name="landmark" placeholder="landmark / street">
+            <!-- <br><br> -->
+            <input type="text" name="city" placeholder="City">
+            <!-- <br> -->
+            <input type="text" name="state" placeholder="State">
+            <br><br>
+            <input type="text" name="country" placeholder="Country">
+            <!-- <br> -->
+            <input type="text" name="pin" placeholder="Pincode">
+            <br><br>
+
+
+            <h4>Contact Information  </h4>
+            <input type="text" name="prefix" placeholder="Country Prefix" >
+            <input type="text" name="phone" placeholder="Contact Number" >
+
+            <br><br><br>
+
+            <h4>Special Accessiblity : </h4>
+            <input type="checkbox" id="vi" name="vi">
+            <label for="vi">Visually Impaired Facilities </label><br>
+
+            <input type="checkbox" id="wi" name="wi" >
+            <label for="wi">Wheelchair Facilities </label><br>
+
+            <input type="checkbox" id="hi" name="hi" >
+            <label for="hi">Hearing Impaired Facilities </label><br>
+
+            <input type="checkbox" id="si" name="si" >
+            <label for="si">Speech Impaired Facilities</label><br>
+            <br><br>
+
+            <!-- Room details -->
+            
+            <!-- Room type 1 -->
+            <input type="text" name="name_type1" placeholder="Type of Room" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="cnt_type1" placeholder="Number of rooms" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="price_type1" placeholder="Price per night" >
+            <br>
+            <br>
+            <textarea rows="4" cols="100" name="extra_type1" placeholder="Extra Facilities provided">
+               </textarea>
+            <br><br><br><br>
+
+            <!-- Room type 2 -->
+            <input type="text" name="name_type2" placeholder="Type of Room" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="cnt_type2" placeholder="Number of rooms" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="price_type2" placeholder="Price per night" >
+            <br>
+            <br>
+            <textarea rows="4" cols="100" name="extra_type2" placeholder="Extra Facilities provided">
+               </textarea>
+            <br><br><br><br>
+
+            <!-- Room type 1 -->
+            <input type="text" name="name_type3" placeholder="Type of Room" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="cnt_type3" placeholder="Number of rooms" > &nbsp;&nbsp;&nbsp;
+            <input type="text" name="price_type3" placeholder="Price per night" >
+            <br>
+            <br>
+            <textarea rows="4" cols="100" name="extra_type3" placeholder="Extra Facilities provided">
+               </textarea>
+            <br><br>
+            
+            
+
+            <br>
+            <button type="submit"> Register </button>
+        </form>
+    </center>
+</body>
+
+</html>
