@@ -39,6 +39,9 @@ class SingleHotel(RetrieveAPIView):
 class CreateCheckoutSessionView(APIView):
     def post(self, request, *args, **kwargs):
         hotel_id=self.kwargs["pk"]
+        num1=self.kwargs["num1"]
+        num2=self.kwargs["num2"]
+        num3=self.kwargs["num3"]
         #hotel_id = self.kwargs.get('pk')
         try:
             hotel=Hotels.objects.get(id=hotel_id)
@@ -47,7 +50,7 @@ class CreateCheckoutSessionView(APIView):
                 {
                     'price_data':{
                             'currency':'Inr',
-                            'unit_amount':int(hotel.pricetype1)*100,
+                            'unit_amount':int(hotel.pricetype1)*100*int(num1)+int(hotel.pricetype2)*100*int(num2)+int(hotel.pricetype3)*100*int(num3),
                             'product_data':{
                                 'name':hotel.name,
                                 'images':[hotel.image],

@@ -13,10 +13,17 @@ function HotelDetails() {
     let hid = params.hid;
     console.log(hid)
     let info={};
-
+    const [quan,setQuan]=useState({ num1: 0, num2: 0,num3: 0 });
+    const handleChange = e => {
+      setQuan({
+        ...quan,
+        [e.target.name]: e.target.value
+      });
+      console.log(quan);
+    };
     useEffect(() =>{
       const query = new URLSearchParams(window.location.search);
-  
+      //setQuan(quan=>[...quan,document.getElementById("num1").value,document.getElementById("num2").value,document.getElementById("num3").value]);
       if (query.get("success")) {
         console.log("Order placed! You will receive an email confirmation.");
       }
@@ -60,11 +67,27 @@ function HotelDetails() {
         alt={info.name}
       /> */}
       <div className="description">
-      <h3>{info.name}</h3>
+      <h3>{info.name}</h3> 
+      <h4>{info.roomtype1}</h4>
       <h5>{info.pricetype1}</h5>
+      Select Quantity:  <input name="num1" id="num1" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
+      <hr></hr>
+      <h4>{info.roomtype2}</h4>
+      <h5>{info.pricetype2}</h5>
+      Select Quantity:  <input name="num2" id="num2" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
+      <hr></hr>
+      <h4>{info.roomtype3}</h4>
+      <h5>{info.pricetype3}</h5>
+      Select Quantity:  <input name="num3" id="num3" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
+      <hr></hr>
+      {/* <h1>{quan["num1"]+" "+quan["num2"]+" "+quan["num3"]}</h1> */}
+      {/* <button onClick={onSelectQuan}>
+        check Quantity
+      </button> */}
       </div>
     </div>
-    <form action={`${API_URL}/api/stripe/create-checkout-session/${hid}`} method="POST">
+    <hr></hr>
+    <form action={`${API_URL}/api/stripe/create-checkout-session/${hid}/${quan["num1"]}/${quan["num2"]}/${quan["num3"]}`} method="POST">
       <button type="submit">
         Checkout
       </button>
