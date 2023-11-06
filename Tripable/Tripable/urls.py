@@ -23,7 +23,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', include('exploreApp.urls')),
+    path('', include('exploreApp.urls')),
     path('',include('tourist.urls')),
     # url('', include('exploreHotels.urls')),
     path('api/stripe/',include('exploreHotels.urls'))

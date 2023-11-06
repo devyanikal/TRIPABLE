@@ -1,0 +1,31 @@
+<html>
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<h2> Login as existing Collaborator : </h2>
+<center>
+    
+<form method="POST">
+    {% csrf_token %}
+    <!-- {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %} -->
+    <h4> Enter Hotel username :  </h4>
+    <input type="text" name="username" placeholder="Enter your username">
+    <br>
+    <h4> Password : &nbsp;&nbsp; </h4>
+    <input type="password" name="password" >
+    <br><br><br>
+    <p>Don't have an account <a href ='hotel_signup'>Register</a></p>
+    <button type="submit"> LOGIN </button>    
+</form>     
+</center>
+
+{% else %}
+<p> You're already logged in..</p>
+<p>Do you want to <a href = "{% url 'logout' %}">Logout</a> ? </p>
+{%  endif %}
+</html>
+
+{% endblock%}

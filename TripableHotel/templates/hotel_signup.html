@@ -1,0 +1,27 @@
+<html>
+
+<h2> Hotel Registeration : </h2>
+<center>
+
+    
+<form method="POST">
+    {% csrf_token %}
+    <h4> Enter Hotel name :  </h4>
+    <input type="text" name="hotel_name" placeholder="Hotel Name">
+    <br>
+
+    <h4> Enter email :  </h4>
+    <input type="email" name="email" placeholder="email@.com">
+    <br>
+
+    <h4> Enter username :  </h4>
+    <input type="text" name="username" placeholder="Enter hotel's username">
+    <br>
+    <h4> Password : &nbsp;&nbsp; </h4>
+    <input type="password" name="password" >
+    <br><br><br>
+    <p>Already have an account? <a href ='hotel_login'>Login </a></p>
+    <button type="submit"> Register </button>    
+</form>     
+</center>
+</html>
