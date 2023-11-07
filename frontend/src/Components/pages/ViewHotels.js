@@ -28,11 +28,11 @@ function ViewHotels(){
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
         
-        let url='http://127.0.0.1:8000/api/stripe/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        let url='http://127.0.0.1:7000/api/stripe/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
         console.log(url)
         console.log(searched)
         if(flag==1){
-          url='http://127.0.0.1:8000/api/stripe/hotels?search='+searched;
+          url='http://127.0.0.1:7000/api/stripe/hotels?search='+searched;
           setFlag(0);
         }
         axios.get(url)

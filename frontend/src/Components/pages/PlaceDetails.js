@@ -17,7 +17,7 @@ let info={};
 
     useEffect(() =>{
         let data;
-        axios.get('http://127.0.0.1:8000/explore/')
+        axios.get('http://127.0.0.1:7000/explore/')
         .then(res => {
             data=res.data;
             setDetails({

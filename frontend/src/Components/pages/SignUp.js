@@ -29,7 +29,7 @@ function SignUp(){
 
         axios({
           method: 'post',
-          url: 'http://127.0.0.1:8000/customer_api',
+          url: 'http://127.0.0.1:7000/customer_api',
           data: formData,
           headers:{'Content-type': 'multipart/form-data'}
         })

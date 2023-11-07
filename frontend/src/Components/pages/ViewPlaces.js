@@ -27,11 +27,11 @@ function ViewPlaces(){
         else if (disablity=="si"){dict={wu: '',vi: '',si: true,hi: ''}}
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
-        let url='http://127.0.0.1:8000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        let url='http://127.0.0.1:7000/explore?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
         console.log(url)
         console.log(searched)
         if(flag==1){
-          url='http://127.0.0.1:8000/explore?search='+searched;
+          url='http://127.0.0.1:7000/explore?search='+searched;
           setFlag(0);
         }
         axios.get(url)

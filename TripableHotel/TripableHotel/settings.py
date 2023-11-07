@@ -59,7 +59,8 @@ ROOT_URLCONF = 'TripableHotel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/tripable/TripableHotel/templates'],
+        'DIRS': ['C:/Users/HP/Desktop/project/Semester7/tripable/TripableHotel/templates'],
+        # 'DIRS': ['TripableHotel/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

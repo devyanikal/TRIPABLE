@@ -35,7 +35,7 @@ function HotelDetails() {
       }
 
         let data;
-        axios.get('http://127.0.0.1:8000/api/stripe/hotels/')
+        axios.get('http://127.0.0.1:7000/api/stripe/hotels/')
         .then(res => {
             data=res.data;
             setDetails({
