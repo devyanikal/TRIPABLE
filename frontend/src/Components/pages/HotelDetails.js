@@ -60,7 +60,7 @@ function HotelDetails() {
           {info=value}
     }
  })}
-  <DetailedCard image={info.image} name={info.name} description={info.facility} location={info.landmark}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired}/>
+  <DetailedCard image={info.image} name={info.name} description={info.facility} location={info.landmark}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired} facility={info.facility}/>
     <div className="product">
       {/* <img
         src={info.image}
@@ -69,14 +69,17 @@ function HotelDetails() {
       <div className="description">
       <h3>{info.name}</h3> 
       <h4>{info.roomtype1}</h4>
+      <p>{info.facilityoftype1}</p>
       <h5>{info.pricetype1}</h5>
       Select Quantity:  <input name="num1" id="num1" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
       <hr></hr>
       <h4>{info.roomtype2}</h4>
+      <p>{info.facilityoftype2}</p>
       <h5>{info.pricetype2}</h5>
       Select Quantity:  <input name="num2" id="num2" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
       <hr></hr>
       <h4>{info.roomtype3}</h4>
+      <p>{info.facilityoftype3}</p>
       <h5>{info.pricetype3}</h5>
       Select Quantity:  <input name="num3" id="num3" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
       <hr></hr>
