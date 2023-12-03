@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('exploreApp.urls')),
     path('',include('tourist.urls')),
     # url('', include('exploreHotels.urls')),
-    path('api/stripe/',include('exploreHotels.urls'))
+    path('api/stripe/',include('exploreHotels.urls')),
+    path('',include('comment.urls'))
     
 ]

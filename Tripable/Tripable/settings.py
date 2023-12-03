@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'exploreApp.apps.ExploreappConfig',
     'exploreHotels.apps.ExplorehotelsConfig',
     'tourist.apps.TouristConfig',
-    'django_filters'
+    'django_filters',
+    'comment.apps.CommentConfig'
 ]
 
 REST_FRAMEWORK = { 

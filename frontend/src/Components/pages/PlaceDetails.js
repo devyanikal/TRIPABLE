@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router'
 import DetailedCard from './DetailedCard';
+import Comment from '../Comment/Comment';
 
 
 function  PlaceDetails() {
@@ -50,6 +51,7 @@ let info={};
  }
  })}
   <DetailedCard image={info.image} name={info.place_name} description={info.About} location={info.location}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired} facility={info.facility}/>
+  <Comment/>
       </div>
     )
   }
