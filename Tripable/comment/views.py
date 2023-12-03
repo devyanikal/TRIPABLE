@@ -6,10 +6,12 @@ from django.http.response import JsonResponse
 from comment.serializer import CommentSerializer
 from comment.models import Comment
 from rest_framework.generics import ListCreateAPIView
+from django_filters.rest_framework import DjangoFilterBackend
 
 class CommentList(ListCreateAPIView):
     queryset=Comment.objects.all()
     serializer_class=CommentSerializer
+    filterset_fields=['place_cid']
 
 # @csrf_exempt
 # def commentApi(request,id=0):

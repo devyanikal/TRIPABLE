@@ -1,11 +1,11 @@
 import {useEffect, useState } from "react";
 import axios from 'axios';
-function Comment()
+function Comment(props)
 {
 
   const [cid, setCid] = useState('');
   const [commenterName, setCommenterName] = useState("");
-  const [placeCid, setPlaceCid] = useState("");
+  const [placeCid, setPlaceCid] = useState(props.placeid);
   const [commentBody, setCommentBody] = useState("");
   const [dateAdded, setDateAdded] = useState('');
   const [user,setUser] = useState([]);
@@ -17,7 +17,7 @@ useEffect(() => {
 async function  Load()
   {
      const result = await axios.get(
-         "http://127.0.0.1:7000/comment");
+         "http://127.0.0.1:7000/comment//?place_cid="+props.placeid);
          setUser(result.data);
          console.log(result.data);
   }
@@ -25,34 +25,17 @@ async function  Load()
   
  async function save(event)
     {
+      console.log("cid",cid)
+      console.log("dateAdded",dateAdded)
+      console.log(placeCid,commentBody,commenterName)
         event.preventDefault();
     try
         {
-            console.log(cid,placeCid,commentBody,commenterName,dateAdded)
-        //  await axios.post("http://127.0.0.1:7000/comment",
-        // {
-        
-        //   cid: null,
-        //   place_cid: placeCid,
-        //   commenter_name: commenterName,
-        //   comment_body: commentBody,
-        //   date_added: dateAdded
-        
-        // })
-        // ;
-        // console.log(cid,placeCid,commentBody,commenterName,dateAdded)
-        //   alert("Comment added successfully");
-        //   setCommenterName("");
-        //   setCommentBody("");
-        //   setDateAdded("");
-        //   setCid("");
-        //   setPlaceCid("");
-        //  Load();
-
-        axios({
+        await axios({
         method: 'post',
-        url: 'http://127.0.0.1:7000/comment',
+        url: 'http://127.0.0.1:7000/comment/',
         data: {
+          cid:null,
           place_cid: placeCid,
           commenter_name: commenterName,
           comment_body: commentBody},
@@ -78,54 +61,7 @@ async function  Load()
           alert("Comment upload Failed");
         }
    }
-// async function editStudent(students)
-//    {
-//     setName(students.name);
-//     setAddress(students.address);
-//     setFee(students.fee);
-//     setId(students.id);
-    
-//    }
-//    async function DeleteStudent(id)
-//    {
-      
-//         await axios.delete("http://127.0.0.1:8000/student/" + id);
-//         alert("Student deleted Successfully");
-//         setId("");
-//         setName("");
-//         setAddress("");
-// setFee("");
-//         Load();
-  
-  
-//    }
-//    async function update(event)
-//    {
-//     event.preventDefault();
-//    try
-//        {
-        
-//         await axios.put("http://127.0.0.1:8000/student/"+ students.find(u => u.id === id).id || id,
-//        {
-//          id: id,
-//          name: name,
-//          address: address,
-//          fee: fee
-      
-//        });
-// alert("Student Updateddddd");
-//          setId("");
-//          setName("");
-//          setAddress("");
-//          setFee("");
-//          Load();
-      
-//        }
-//    catch(err)
-//        {
-//          alert(" Student updateddd Failed");
-//        }
-//   }
+
   return (
     <div>
        <h1>Student Details</h1>
@@ -142,7 +78,7 @@ async function  Load()
                   }}
                 />
               </div>
-
+{/* 
               <div class="form-group">
                 <label>Place Cid</label>
                 <input  type="text" class="form-control" id="place_cid"
@@ -153,7 +89,7 @@ async function  Load()
                      console.log(placeCid)     
                     }}
                 />
-              </div>
+              </div> */}
 
               <div class="form-group">
                 <label>Comment</label>
