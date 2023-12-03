@@ -22,10 +22,10 @@ export default function DetailedCard(props) {
     <p>Location <br></br> {props.location}</p>
     {console.log(props.vi)}
     <h4>Aids Provided</h4>
-    <p>Visual Impaired {props.vi?  ' ✔ ' : ' ✖ '} </p>
-    <p>Wheelchair User {props.wu?  ' ✔ ' : ' ✖ '}</p>
-    <p>Hearing Impaired{props.hi?  ' ✔ ' : ' ✖ '}</p>
-    <p>Speech Impaired{props.si?  ' ✔ ' : ' ✖ '}</p>
+    <p>Visual Impaired {props.vi?  ' ✅ ' : ' ❌ '} </p>
+    <p>Wheelchair User {props.wu?  ' ✅ ' : ' ❌ '}</p>
+    <p>Hearing Impaired{props.hi?  ' ✅ ' : ' ❌ '}</p>
+    <p>Speech Impaired{props.si?  ' ✅ ' : ' ❌ '}</p>
     <p><h4>Facilities</h4> {props.facility}</p>
 
   </div>

@@ -60,40 +60,47 @@ function HotelDetails() {
           {info=value}
     }
  })}
+
   <DetailedCard image={info.image} name={info.name} description={info.facility} location={info.landmark}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired} facility={info.facility}/>
-    <div className="product">
-      {/* <img
-        src={info.image}
-        alt={info.name}
-      /> */}
-      <div className="description">
-      <h3>{info.name}</h3> 
-      <h4>{info.roomtype1}</h4>
-      <p>{info.facilityoftype1}</p>
-      <h5>{info.pricetype1}</h5>
+    <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Room Type</th>
+      <th scope="col">Facility</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{info.roomtype1}</td>
+      <td>{info.facilityoftype1}</td>
+      <td>₹{info.pricetype1}  <p style={{color: 'grey'}}>Per Night</p>
       Select Quantity:  <input name="num1" id="num1" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
-      <hr></hr>
-      <h4>{info.roomtype2}</h4>
-      <p>{info.facilityoftype2}</p>
-      <h5>{info.pricetype2}</h5>
+      </td>
+    </tr>
+    <tr>
+      <td>{info.roomtype2}</td>
+      <td>{info.facilityoftype2}</td>
+      <td>₹{info.pricetype2}  <p style={{color: 'grey'}}>Per Night</p>
       Select Quantity:  <input name="num2" id="num2" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
-      <hr></hr>
-      <h4>{info.roomtype3}</h4>
-      <p>{info.facilityoftype3}</p>
-      <h5>{info.pricetype3}</h5>
+      </td>
+    </tr>
+    <tr>
+      <td>{info.roomtype3}</td>
+      <td>{info.facilityoftype3}</td>
+      <td>₹{info.pricetype3}  <p style={{color: 'grey'}}>Per Night</p>
       Select Quantity:  <input name="num3" id="num3" onChange={handleChange} placeholder="0" type="number" min="0" max="100"/>
-      <hr></hr>
-      {/* <h1>{quan["num1"]+" "+quan["num2"]+" "+quan["num3"]}</h1> */}
-      {/* <button onClick={onSelectQuan}>
-        check Quantity
-      </button> */}
-      </div>
-    </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
     <hr></hr>
     <form action={`${API_URL}/api/stripe/create-checkout-session/${hid}/${quan["num1"]}/${quan["num2"]}/${quan["num3"]}`} method="POST">
-      <button type="submit">
-        Checkout
-      </button>
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg active" type="submit">
+          Checkout
+        </button>
+      </div>
       
       
     </form>
