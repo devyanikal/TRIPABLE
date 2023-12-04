@@ -20,7 +20,7 @@ class  getData_serializer(serializers.ModelSerializer):
     class Meta:
         model = user
         fields = [
-            'username', 'landmark', 'city', 'state', 'country','pincode',
+            'username', 'landmark', 'city', 'state', 'country','pincode','image','hotel_name','facility',
             'prefix', 'mobile', 'visual_impaired', 'wheelchair_user','hearing_impaired','speech_impaired',
             'roomtype1','pricetype1','numOftype1','facilityoftype1',
             'roomtype2','pricetype2','numOftype2','facilityoftype2',

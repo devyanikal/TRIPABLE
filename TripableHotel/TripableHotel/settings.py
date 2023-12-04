@@ -39,8 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hotel.apps.HotelConfig',
     'rest_framework',
+    'django_filters',
     'corsheaders'
 ]
+
+REST_FRAMEWORK = { 
+    # "DEFAULT_PERMISSION_CLASSES": (
+    #     "rest_framework.permissions.AllowAny"),
+    'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend',
+	)
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -82,9 +91,9 @@ WSGI_APPLICATION = 'TripableHotel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'triphotel',
+        'NAME': 'hotel',
         'USER': 'root' ,
-        'PASSWORD': 'muskan17' ,
+        'PASSWORD': 'Devi12dm#' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
