@@ -4,10 +4,19 @@ from django.contrib.auth import authenticate, login , logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from rest_framework.response import Response
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.views import APIView
 from .serializers import *
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
 
+class HotelUserList(ListCreateAPIView):
+    queryset=HotelUser.objects.all()
+    serializer_class=getData_serializer
+    filter_backends=[DjangoFilterBackend,SearchFilter]
+    search_fields=['landmark', 'city', 'state', 'country','facility','hotel_name']
+    filterset_fields=['city','wheelchair_user','hearing_impaired','visual_impaired','speech_impaired']
 
 class hotel_view(APIView):
     serializer_class = user_serializer
