@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import './format.css'
+import React from 'react';
 
 function DarkVariantExample(props) {
   return (

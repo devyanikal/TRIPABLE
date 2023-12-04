@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hotel.views import *
+from hotel.views import CreateCheckoutSessionView;
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -24,6 +25,8 @@ from hotel.views import *
 urlpatterns = [
     # path('admin/', admin.site.urls),
     #API urls
+
+    path('api/stripe/create-checkout-session/<pk>/<num1>/<num2>/<num3>',CreateCheckoutSessionView.as_view(), name='checkout_session'),
     path('hotel_api', hotel_view.as_view(), name ='hotel view'),
 
     #signup
@@ -31,6 +34,8 @@ urlpatterns = [
 
     #login
     path('login_hotel_api', hotel_login_view.as_view(), name ='Login hotel view'),
+
+    path('hotel_data', HotelDataList.as_view(), name ='Hotel data'),
 
     #Register data 
     # path('hoteldata_api', getData_api.as_view(), name ='getData hotel view'),

@@ -6,9 +6,63 @@ from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import *
+from rest_framework.generics import ListCreateAPIView
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from django.conf import settings
+import stripe
+from rest_framework import status
 # Create your views here.
 
+stripe.api_key=settings.STRIPE_SECRET_KEY
 
+class CreateCheckoutSessionView(APIView):
+    def post(self, request, *args, **kwargs):
+        hotel_id=self.kwargs["pk"]
+        num1=self.kwargs["num1"]
+        num2=self.kwargs["num2"]
+        num3=self.kwargs["num3"]
+        #hotel_id = self.kwargs.get('pk')
+        try:
+            hotel=HotelUser.objects.get(id=hotel_id)
+            checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price_data':{
+                            'currency':'Inr',
+                            'unit_amount':int(hotel.pricetype1)*100*int(num1)+int(hotel.pricetype2)*100*int(num2)+int(hotel.pricetype3)*100*int(num3),
+                            'product_data':{
+                                'name':hotel.hotel_name,
+                                'images':[hotel.image],
+                            },
+                        },
+                    'quantity': 1,
+                },
+            ],
+            metadata={
+                    "product_id":hotel.id
+                },
+            payment_method_types=['card'],
+            mode='payment',
+            # success_url=settings.SITE_URL + '/?success=true&session_id={CHECKOUT_SESSION_ID}',
+            success_url=settings.SITE_URL + '/?success=true&session_id={CHECKOUT_SESSION_ID}',
+            cancel_url=settings.SITE_URL + '/?canceled=true',
+        )
+            return redirect(checkout_session.url)
+        except:
+            return Response(
+                {'error':'Something went wrong when creating strip checkout session'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+
+
+class HotelDataList(ListCreateAPIView):
+    queryset=HotelUser.objects.all()
+    serializer_class=getData_serializer
+    filter_backends=[DjangoFilterBackend,SearchFilter]
+    search_fields=['hotel_name','landmark','city','state','country']
+    filterset_fields=['city','wheelchair_user','hearing_impaired','visual_impaired','speech_impaired']
 class hotel_view(APIView):
     serializer_class = user_serializer
 

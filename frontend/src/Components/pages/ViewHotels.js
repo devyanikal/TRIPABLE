@@ -28,11 +28,18 @@ function ViewHotels(){
         else if (disablity=="hi"){dict={wu: '',vi: '',si: '',hi: true}}
         console.log(dict)
         
-        let url='http://127.0.0.1:7000/api/stripe/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        // let url='http://127.0.0.1:7000/api/stripe/hotels?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
+        // console.log(url)
+        // console.log(searched)
+        // if(flag==1){
+        //   url='http://127.0.0.1:7000/api/stripe/hotels?search='+searched;
+        //   setFlag(0);
+        // }
+        let url='http://127.0.0.1:8000/hotel_data?city='+value+'&wheelchair_user='+dict.wu+'&hearing_impaired='+dict.hi+'&visual_impaired='+dict.vi+'&speech_impaired='+dict.si
         console.log(url)
         console.log(searched)
         if(flag==1){
-          url='http://127.0.0.1:7000/api/stripe/hotels?search='+searched;
+          url='http://127.0.0.1:8000/hotel_data?search='+searched;
           setFlag(0);
         }
         axios.get(url)
@@ -99,7 +106,7 @@ function ViewHotels(){
             <div key={id}> {console.log(hotel.image)}
             {console.log(hotel)}
             <Link to={`/hotels/${hotel.id}`} className={"link"} style={{textDecoration: 'none'}} >
-          <CardTemplate key={id} image={hotel.image} name={hotel.name} description={hotel.landmark+", "+hotel.city+", "+hotel.state+", "+hotel.country+", "+hotel.pincode}/>
+          <CardTemplate key={id} image={hotel.image} name={hotel.hotel_name} description={hotel.landmark+", "+hotel.city+", "+hotel.state+", "+hotel.country+", "+hotel.pincode}/>
           </Link>
           </div>
         ))}

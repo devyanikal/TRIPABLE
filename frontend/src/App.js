@@ -1,5 +1,6 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import Contactus from './Components/Contactus/Contactus';
 import ViewPlaces from './Components/pages/ViewPlaces';
 import { BrowserRouter, Route, Routes } from "react-router-dom";

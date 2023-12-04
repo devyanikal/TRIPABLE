@@ -39,8 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hotel.apps.HotelConfig',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+        'django_filters'
 ]
+
+REST_FRAMEWORK = { 
+    # "DEFAULT_PERMISSION_CLASSES": (
+    #     "rest_framework.permissions.AllowAny"),
+    'DEFAULT_FILTER_BACKENDS':(
+		'django_filters.rest_framework.DjangoFilterBackend',
+	)
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -82,9 +91,9 @@ WSGI_APPLICATION = 'TripableHotel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'triphotel',
+        'NAME': 'hotel',
         'USER': 'root' ,
-        'PASSWORD': 'muskan17' ,
+        'PASSWORD': 'Devi12dm#' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
@@ -136,3 +145,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SITE_URL='http://localhost:3000'
+
+STRIPE_PUBLIC_KEY=""
+STRIPE_SECRET_KEY="sk_test_51O6njMSAW3yVCbzIYChOcjbJyGEvY8Zv9aVA8HOHJB5uTDtRq5GyWGV2clpUfU6vGxyvJGMqN6tSbQGIjfZoO1QS00D2D584cc"
+STRIPE_WEBHOOK_SECRET=""

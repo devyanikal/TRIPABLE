@@ -35,7 +35,8 @@ function HotelDetails() {
       }
 
         let data;
-        axios.get('http://127.0.0.1:7000/api/stripe/hotels/')
+        // axios.get('http://127.0.0.1:7000/api/stripe/hotels/')
+        axios.get('http://127.0.0.1:8000/hotel_data')
         .then(res => {
             data=res.data;
             setDetails({
@@ -61,7 +62,7 @@ function HotelDetails() {
     }
  })}
 
-  <DetailedCard image={info.image} name={info.name} description={info.facility} location={info.landmark}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired} facility={info.facility}/>
+  <DetailedCard image={info.image} name={info.hotel_name} description={info.facility} location={info.landmark}  vi={info.visual_impaired} wu={info.wheelchair_user} hi={info.hearing_impaired} si={info.speech_impaired} facility={info.facility}/>
     <table class="table table-bordered">
   <thead>
     <tr>
