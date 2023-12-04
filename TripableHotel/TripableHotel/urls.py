@@ -36,8 +36,6 @@ urlpatterns = [
     # path('hoteldata_api', getData_api.as_view(), name ='getData hotel view'),
     path('hoteldata_api/<str:pk>/', getData_api.as_view(), name ='getData hotel view'),
 
-    path('hotel_data', HotelUserList.as_view(), name ='hotel data view'),
-
 
     #template urls
     path('hotel_signup', hotel_register_page),

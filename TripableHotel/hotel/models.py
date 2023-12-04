@@ -51,7 +51,6 @@ class HotelUser(AbstractUser):
     pincode = models.IntegerField(default=0)
 
     image=models.CharField(max_length=500,default=" ")
-    facility=models.CharField(max_length=500,default=" ")
 
     #accessiblity
     visual_impaired=models.BooleanField(default=False)
