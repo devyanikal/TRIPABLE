@@ -50,7 +50,6 @@ class HotelUser(AbstractUser):
     country = models.CharField(max_length=50)
     pincode = models.IntegerField(default=0)
 
-    facility = models.TextField(default=" ")
     image=models.CharField(max_length=500,default=" ")
 
     #accessiblity

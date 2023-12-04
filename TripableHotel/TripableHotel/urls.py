@@ -23,11 +23,21 @@ from hotel.views import *
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    #API urls
     path('hotel_api', hotel_view.as_view(), name ='hotel view'),
-    path('add_hotel_api', add_hotel_view.as_view(), name ='Add hotel view'),
-    path('login_hotel_api', hotel_login_view.as_view(), name ='Login hotel view'),
-    path('hoteldata_api', getData_api.as_view(), name ='getData hotel view'),
 
+    #signup
+    path('add_hotel_api', add_hotel_view.as_view(), name ='Add hotel view'),
+
+    #login
+    path('login_hotel_api', hotel_login_view.as_view(), name ='Login hotel view'),
+
+    #Register data 
+    # path('hoteldata_api', getData_api.as_view(), name ='getData hotel view'),
+    path('hoteldata_api/<str:pk>/', getData_api.as_view(), name ='getData hotel view'),
+
+
+    #template urls
     path('hotel_signup', hotel_register_page),
     path('hotel_registration/<int:user_id>/', hotel_getData_page, name = 'register_hotel'),
     path('hotel_getdata', hotel_getData_page, name ='hotel_getdata'),

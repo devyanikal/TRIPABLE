@@ -78,7 +78,8 @@ class add_hotel_view(APIView):
                 }
                 #messages.info(request, 'Account created Successfully')
                 # return getData_api(user_id = context.id)
-                return render(request, 'hotel_login.html', context)
+                # return render(request, 'hotel_login.html', context)
+                return Response('Account Created!')
         
             serializer.save()
             return Response(serializer.data)
@@ -87,13 +88,21 @@ class add_hotel_view(APIView):
 class getData_api(APIView):
     serializer_class = getData_serializer
 
-    def post(self, request):
-        serializer = getData_serializer(data = request.data)
+    def post(self, request, pk):
+        obj = HotelUser.objects.get(id = pk)
+        serializer = getData_serializer(instance= obj, data = request.data)
+        
+
         if serializer.is_valid(raise_exception=True):
 
         
             if(request.method == 'POST'):
-                obj = HotelUser.objects.filter(username = request.POST.get('username'))
+                # print(request.POST.get('username'))
+                # obj = HotelUser.objects.filter(username = request.POST.get('username'))
+                # obj = HotelUser.objects.filter(username = request.POST.get('username')).update(landmark = request.POST.get('landmark'))
+                # obj = HotelUser.objects.filter(id = request.POST.get('id'))
+                print(request.POST.get('id'))
+                print(obj.id)
                 obj.landmark = request.POST.get('landmark')
                 obj.city = request.POST.get('city')
                 obj.state = request.POST.get('state')
@@ -103,10 +112,17 @@ class getData_api(APIView):
                 obj.prefix = request.POST.get('prefix')
                 obj.mobile = request.POST.get('mobile')
 
-                obj.visual_impaired =  request.POST.get('visual_impaired')
-                obj.wheelchair_user =  request.POST.get('wheelchair_user')
-                obj.speech_impaired =  request.POST.get('speech_impaired')
-                obj.hearing_impaired =  request.POST.get('hearing_impaired')
+                if(request.POST.get('visual_impaired') == 'on'):
+                    obj.visual_impaired = 1
+
+                if(request.POST.get('wheelchair_user') == 'on'):
+                    obj.wheelchair_user = 1
+
+                if(request.POST.get('speech_impaired') == 'on'):
+                    obj.speech_impaired = 1
+
+                if(request.POST.get('hearing_impaired') == 'on'):
+                    obj.hearing_impaired = 1
 
                 obj.roomtype1 = request.POST.get('name_type1')
                 obj.pricetype1 = request.POST.get('price_type1')
@@ -122,6 +138,20 @@ class getData_api(APIView):
                 obj.pricetype3 = request.POST.get('price_type3')
                 obj.numOftype3 = request.POST.get('cnt_type3')
                 obj.facilityoftype3 = request.POST.get('extra_type3')
+
+                # obj.save(update_fields=['landmark', 'city', 'state', 'country','pincode',
+                #     'prefix', 'mobile', 'visual_impaired', 'wheelchair_user','hearing_impaired','speech_impaired',
+                #     'roomtype1','pricetype1','numOftype1','facilityoftype1',
+                #     'roomtype2','pricetype2','numOftype2','facilityoftype2',
+                #     'roomtype3','pricetype3','numOftype3','facilityoftype3'])
+                if serializer.is_valid():
+                    serializer.save()
+                
+
+                return Response(serializer.data)
+                # return Response('editted data')
+            
+        return Response('Error occured')
 
 
 

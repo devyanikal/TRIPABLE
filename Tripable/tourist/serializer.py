@@ -14,9 +14,9 @@ class add_user_serializer(serializers.Serializer):
     last_name = serializers.CharField(min_length = 2)
     username = serializers.CharField()
     email = serializers.EmailField()
-    password = serializers.CharField()
-    cpassword = serializers.CharField()
+    password = serializers.CharField(style={'input_type': 'password', 'placeholder': 'Password'})
+    cpassword = serializers.CharField(style={'input_type': 'password', 'placeholder': 'Password'})
 
 class login_serializer(serializers.Serializer):
     username = serializers.CharField()
-    password = serializers.CharField()
+    password = serializers.CharField(style={'input_type': 'password', 'placeholder': 'Password'})

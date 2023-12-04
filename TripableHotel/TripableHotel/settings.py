@@ -59,7 +59,7 @@ ROOT_URLCONF = 'TripableHotel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/HP/Desktop/project/Semester7/tripable/TripableHotel/templates'],
+        'DIRS': ['/Trip-Able/Django/project/TripableHotel/templates'],
         # 'DIRS': ['TripableHotel/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,15 +82,16 @@ WSGI_APPLICATION = 'TripableHotel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hotel',
+        'NAME': 'triphotel',
         'USER': 'root' ,
-        'PASSWORD': 'sunishka27#' ,
+        'PASSWORD': 'muskan17' ,
         'HOST': 'localhost',
         'PORT':'3306'
 
     }
 }
 
+AUTH_USER_MODEL = 'hotel.HotelUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -129,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-AUTH_USER_MODEL = 'hotel.HotelUser'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

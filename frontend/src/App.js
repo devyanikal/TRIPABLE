@@ -11,6 +11,9 @@ import About from './Components/pages/About';
 import SignUp from './Components/pages/SignUp';
 import PlaceDetails from './Components/pages/PlaceDetails';
 import HotelDetails from './Components/pages/HotelDetails';
+import HotelSignUp from './Components/pages/hotelSignUp';
+import HotelLogin from './Components/pages/hotelLogin';
+import Register from './Components/pages/hotelRegister';
 // import ReactPlayer from 'react-player'
 
 
@@ -33,6 +36,11 @@ function App(){
           <Route exact path='/signin' element={< SignIn />}></Route> 
           <Route exact path='/places/:pid' element={<PlaceDetails/>}></Route>
           <Route exact path='/hotels/:hid' element={<HotelDetails/>}></Route>
+
+          {/* Hotel Pages */}
+          <Route exact path='/Hotellogin' element={<HotelLogin/>}></Route>
+          <Route exact path='/Hotelsignup' element={<HotelSignUp/>}></Route>
+          <Route exact path='/register' element={<Register/>}></Route>
 
         </Routes>
         <footer>
