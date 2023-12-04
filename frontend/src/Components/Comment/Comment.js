@@ -1,5 +1,6 @@
 import {useEffect, useState } from "react";
 import axios from 'axios';
+import './Comment.css'
 function Comment(props)
 {
 
@@ -63,8 +64,8 @@ async function  Load()
    }
 
   return (
-    <div>
-       <h1>Student Details</h1>
+    <div className="add_section">
+       <center><h1>Post a Comment</h1></center>
        <div class="container mt-4" >
           <form>
               <div class="form-group">
@@ -110,9 +111,9 @@ async function  Load()
               
             </form>
           </div>
+<center><h3>See All Comments</h3></center>
 
-
-<table class="table table-dark" align="center">
+{/* <table class="table table-dark" align="center">
   <thead>
     <tr>
       <th scope="col">Place cid</th>
@@ -121,26 +122,32 @@ async function  Load()
       <th scope="col">Comment Body</th>
       <th scope="col">Date Added</th>
     </tr>
-  </thead>
+  </thead> */}
        {user.map(function fn(commenter)
        {
             return(
+              <div className="comment_section"> 
             <tbody>
                 <tr>
-                <th scope="row">{commenter.place_cid} </th>
-                <td>{commenter.cid}</td>
-                <td>{commenter.commenter_name}</td>
-                <td>{commenter.comment_body}</td>
-                <td>{commenter.date_added}</td>        
-                {/* <td>
-                    <button type="button" class="btn btn-warning"  onClick={() => editStudent(student)} >Edit</button>  
-                    <button type="button" class="btn btn-danger" onClick={() => DeleteStudent(student.id)}>Delete</button>
-                </td> */}
+                {/* <th scope="row">{commenter.place_cid} </th> */}
+                <td width={'100%'}><h4>{commenter.comment_body}</h4></td>
+                </tr>
+                <tr>
+                <td width={80}>👤 {commenter.commenter_name}</td>
+                </tr>
+                {/* <tr>
+                  {console.log(commenter.date_added)}
+                <td>{commenter.date_added}</td> 
+                </tr> */}
+                <tr>
+                {console.log(Date(commenter.date_added).slice(0,15))}
+                <td><i>{Date(commenter.date_added).slice(0,15)}</i></td> 
                 </tr>
             </tbody>
+            </div>
             );
             })}
-            </table>
+            {/* </table> */}
        </div>
             );
         }

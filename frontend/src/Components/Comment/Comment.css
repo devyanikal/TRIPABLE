@@ -1,0 +1,17 @@
+.comment_section{
+    background-color: #FA8072;
+    color: antiquewhite;
+    width: 700;
+    background-color: #FA8072;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.add_section{
+    color: #9FE2BF;
+}
+
+.form-group{
+    color: #9FE2BF;
+}
